@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load render_table from django_tables2 %}
+{% load bootstrap3 %}
+{% block title %}Listado{% endblock %}
+{% block extracss %}
+<style>  
+  .page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #ffc107;
+    border-color: #ffc107;
+  }
+</style>
+
+{% endblock extracss %}
+{% block content %}
+    <div class="text-center">
+    <!-- Masthead Avatar Image-->
+        <img class="masthead-avatar mb-5" src="{% static 'core/assets/img/logo.png' %}" alt="..." />
+    </div>
+    <div class="row text-start">
+      <div class="col">
+          <div class="card text-white bg-primary mb-4">
+              <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-white">Filtros</h6> 
+              </div>
+              <div class="card-body">
+                {% if filter %}
+                  <form method="GET">
+                      <div class="row">
+                          {% for field in filter.form %}
+                              <div class="col-md-4">{% bootstrap_field field %}</div>
+                              {% if forloop.counter|divisibleby:3 %}
+                                  </div>
+                                  <br>
+                                  <div class="row">
+                              {% endif %}
+                          {% endfor %}
+                      </div>
+                      <button class="btn btn-warning mt-4 float-start" type="submit">Buscar</button>
+                      <a href="./" class="btn btn-info mt-4 ms-1 float-start" type="submit">Limpiar</a>
+                  </form>
+                  {% endif %}
+              </div>  
+          </div>   
+      </div>
+    </div>
+    <div>
+      <h4 class="text-warning">Usuarios actuales: <span class="h2 text">{{total_users}}</span></h4>
+    </div>
+    {% render_table table 'django_tables2/bootstrap.html' %}   
+  {% endblock %}
+
+ 

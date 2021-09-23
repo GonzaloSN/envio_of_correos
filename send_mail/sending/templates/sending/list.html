@@ -1,0 +1,70 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load bootstrap3 %}
+{% block title %}Listado{% endblock %}
+{% block content %}
+    <div class="text-center">
+    <!-- Masthead Avatar Image-->
+        <img class="masthead-avatar mb-5" src="{% static 'core/assets/img/logo.png' %}" alt="..." />
+    </div>
+    <div class="row text-start">
+        <div class="col">
+            <div class="card text-white bg-primary mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-white">Filtros</h6> 
+                </div>
+                <div class="card-body">
+                    <form method="GET">
+                        <div class="row">
+                            {% for field in filter.form %}
+                                <div class="col-md-4">{% bootstrap_field field %}</div>
+                                {% if forloop.counter|divisibleby:3 %}
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <button class="btn btn-warning mt-4 float-start" type="submit">Buscar</button>
+                        <a href="./" class="btn btn-info mt-4 ms-1 float-start" type="submit">Limpiar</a>
+                    </form>
+                </div>  
+            </div>   
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr class="text-white">
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Correo Electrónico</th>
+                <th scope="col">Nombre de usuario</th>
+                <th scope="col">Contraseña</th>
+                <th scope="col">Perfil</th>
+                <th scope="col">Región</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for user in filter.qs %}
+                    <tr>
+                        <th scope="row">{{user.pk}}</th>
+                        <td>{{user.name}}</td>
+                        <td>{{user.last_name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.password}}</td>
+                        <td>{{user.profile}}</td>
+                        <td>{{user.region}}</td>
+                    </tr>
+                {% empty %}
+                    <p>Sin registros</p>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+  {% endblock %}
+
+  

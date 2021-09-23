@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Nuevo{% endblock %}
+{% block content %}
+    <!-- Masthead Avatar Image-->
+    <img class="masthead-avatar mb-5" src="{% static 'core/assets/img/logo.png' %}" alt="..." />
+    <!-- Masthead Heading-->
+    <h1 class="masthead-heading text-uppercase mb-0">registro y notificación</h1>
+    <!-- Icon Divider-->
+    <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+    </div>
+    <!-- Masthead Subheading-->
+    <p class="masthead-subheading font-weight-light mb-0">Usuarios Plataforma de la ENCCRV</p>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-warning btn-xl" type="submit">OK</button>
+    </form>
+{% endblock %}
