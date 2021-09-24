@@ -143,8 +143,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'plataforma.enccrv@conaf.cl'
-EMAIL_HOST_PASSWORD = 'Plataforma.ENCCRV.2021'
+EMAIL_HOST_USER = 'xxxx@xxxx.cl'
+EMAIL_HOST_PASSWORD = 'xxxxx'
 EMAIL_PORT = 465
 
 # Django Filters
