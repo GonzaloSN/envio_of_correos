@@ -54,7 +54,7 @@ class RegionalUserListView(SingleTableMixin, FilterView):
     table_class = RegionalUserTable
     model = RegionalUser
     template_name = 'sending/list_copy.html'
-    paginate_by = 5
+    paginate_by = 10
     filterset_class = RegionalUserFilter
     ordering = ['id']
 
