@@ -24,7 +24,7 @@
         $( "#last_name" ).change(function() {
             var name = $('#name').val();  
             var last_name = $('#last_name').val();
-            $('#username').val((name + '.' +last_name).toLowerCase())
+            $('#username').val(((name + '.' +last_name).toLowerCase()).normalize('NFD').replace(/[\u0300-\u036f]/g,""));
         });
     </script>
 {% endblock %}
