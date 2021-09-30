@@ -21,11 +21,11 @@ class RegionalUserCreateForm(forms.ModelForm):
           'profile': 'Perfil'
         }
         widgets = {
-          'name': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
-          'last_name': forms.TextInput(attrs={'class': 'form-control form-control-lg'}), 
+          'name': forms.TextInput(attrs={'class': 'form-control form-control-lg', 'id': 'name'}),
+          'last_name': forms.TextInput(attrs={'class': 'form-control form-control-lg', 'id': 'last_name'}), 
           'email': forms.EmailInput(attrs={'class': 'form-control form-control-lg'}), 
-          'username': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),  
-          'password': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),  
+          'username': forms.TextInput(attrs={'class': 'form-control form-control-lg', 'readonly': 'readonly', 'id': 'username'}),  
+          'password': forms.TextInput(attrs={'class': 'form-control form-control-lg', 'value': 'q1w2e3r4', 'readonly': 'readonly'}),  
           'region': forms.Select(attrs={'class': 'form-select form-select-lg'}),
           'profile': forms.Select(attrs={'class': 'form-select form-select-lg'})
 

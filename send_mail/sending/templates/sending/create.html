@@ -19,4 +19,12 @@
         {{ form.as_p }}
         <button class="btn btn-warning btn-xl" type="submit">OK</button>
     </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $( "#last_name" ).change(function() {
+            var name = $('#name').val();  
+            var last_name = $('#last_name').val();
+            $('#username').val((name + '.' +last_name).toLowerCase())
+        });
+    </script>
 {% endblock %}
