@@ -37,7 +37,6 @@ class RegionalUserTable(tables.Table):
 
     class Meta:
         model = RegionalUser
-        template_name = 'django_tables2/bootstrap.html'
         fields = ('id', 'name', 'last_name', 'email', 'username', 'password', 'profile', 'region')
         attrs = {'class': 'table table-striped table-hover'}
     
